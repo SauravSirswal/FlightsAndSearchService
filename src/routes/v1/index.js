@@ -2,6 +2,9 @@ const express = require("express")
 const CityController = require("../../controllers/city-controller")
 
 const router = express.Router()
+const AirplaneRoutes = require("./airplane-routes")
+
+router.use("/airplanes", AirplaneRoutes)
 
 router.post("/city", CityController.create)
 router.delete("/city/:id", CityController.destroy)
