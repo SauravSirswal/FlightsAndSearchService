@@ -10,7 +10,24 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      this.belongsTo(
+        models.Airplane, {
+          foreignKey : 'airplaneId',
+          as : 'airplaneDetails'
+        }
+      )
+      this.belongsTo(
+        models.Airport, {
+          foreignKey : 'departureAirportId',
+          as: 'departureAirport'
+        }
+      )
+      this.belongsTo(
+        models.Airport, {
+          foreignKey : 'arrivalAirportId',
+          as: 'arrivalAirport',
+        }
+      )
     }
   }
   Flight.init({
@@ -18,10 +35,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true
-    },
-    flightNumber: {
-      type: DataTypes.STRING,
-      allowNull: false
     },
     airplaneId: {
       type: DataTypes.INTEGER,
