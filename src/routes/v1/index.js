@@ -1,14 +1,9 @@
 const express = require("express")
-const CityController = require("../../controllers/city-controller")
-
 const router = express.Router()
 const AirplaneRoutes = require("./airplane-routes")
+const CityRoutes = require("./city-routes")
 
 router.use("/airplanes", AirplaneRoutes)
-
-router.post("/city", CityController.create)
-router.delete("/city/:id", CityController.destroy)
-router.put("/city/:id", CityController.update)
-router.get("/city/:id",CityController.get)
+router.use("/city", CityRoutes)
 
 module.exports = router
