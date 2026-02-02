@@ -16,10 +16,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       departureAirportId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       arrivalAirportId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       arrivalTime: {
         type: Sequelize.DATE
